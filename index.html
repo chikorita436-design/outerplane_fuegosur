@@ -153,7 +153,19 @@ tr.past td{color:var(--dim)}
 .el{position:absolute;top:7px;left:7px;z-index:2;width:12px;height:12px;transform:rotate(45deg);background:var(--c);box-shadow:0 0 6px var(--c)}
 .empty{color:var(--mut);padding:24px;text-align:center}
 
-dialog{padding:0;background:var(--panel);color:var(--fg);border:1px solid var(--gold2);width:min(96vw,1040px);max-height:92vh;box-shadow:0 30px 80px #000c}
+dialog{padding:0;margin:0;background:var(--bg,#070914);color:var(--fg);border:0;width:100vw;max-width:100vw;height:100vh;height:100dvh;max-height:100dvh;box-shadow:none}
+dialog .dh,dialog .dtoc,dialog .dbody,dialog .dfoot{width:100%}
+
+dialog .dh{padding:24px max(24px,calc((100vw - 1280px)/2))}
+dialog .dtoc{padding:10px max(24px,calc((100vw - 1280px)/2));justify-content:flex-start}
+dialog .dbody{padding:24px max(24px,calc((100vw - 1280px)/2));flex:1}
+dialog .dfoot{padding:12px max(24px,calc((100vw - 1280px)/2))}
+dialog .dh .ph{width:150px}
+dialog .dh h2{font-size:34px}
+dialog .dtoc a{font-size:13.5px;padding:7px 14px}
+dialog .fsec>h3{font-size:19px}
+dialog .sk .ds,dialog .eec p,dialog .pc ul,dialog .det p,dialog .nband p{font-size:15px}
+.dback{display:inline-flex;align-items:center;gap:6px}
 dialog::backdrop{background:#02040cd9;backdrop-filter:blur(3px)}
 dialog[open]{display:flex;flex-direction:column}
 .dh{display:flex;gap:16px;padding:16px 18px;border-bottom:1px solid var(--line);background:linear-gradient(120deg,color-mix(in srgb,var(--c) 25%,transparent),transparent 60%)}
@@ -310,7 +322,7 @@ details.gi2[open]>summary{border-color:var(--c);background:#ffffff0a}
 .vidt{font-size:12.5px;color:var(--mut);margin-top:6px}
 .vidt a{color:var(--cyan)}
 .loading{padding:30px;text-align:center;color:var(--mut)}
-@media (max-width:600px){dialog[open]{display:block;overflow-y:auto}.dbody{overflow:visible}.dtoc{position:sticky;top:0;z-index:3}.dfoot{position:sticky;bottom:0;z-index:3;background:var(--panel);padding:10px 14px}.dfoot .wa{padding:8px 10px}.tiers{grid-template-columns:repeat(2,minmax(0,1fr))}.bus{grid-template-columns:1fr}.dtoc{padding:8px 12px}}
+@media (max-width:600px){dialog .dh,dialog .dtoc,dialog .dbody,dialog .dfoot{padding-left:14px;padding-right:14px}dialog .dh .ph{width:72px}dialog .dh h2{font-size:22px}dialog[open]{display:block;overflow-y:auto}.dbody{overflow:visible}.dtoc{position:sticky;top:0;z-index:3}.dfoot{position:sticky;bottom:0;z-index:3;background:var(--panel);padding:10px 14px}.dfoot .wa{padding:8px 10px}.tiers{grid-template-columns:repeat(2,minmax(0,1fr))}.bus{grid-template-columns:1fr}.dtoc{padding:8px 12px}}
 
 /* ---- armar equipo ---- */
 .tbm{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:4px 0 14px}
@@ -758,7 +770,7 @@ ol.steps .d{grid-column:2;margin-top:-6px;display:block;color:var(--mut);font-si
   <div class="dh" id="dh"><div class="ph" id="dp"></div><div style="min-width:0"><div class="eyebrow" id="dsub"></div><h2 id="dn">—</h2><div class="tags" id="dtags"></div></div></div>
   <nav class="dtoc" id="dtoc" aria-label="Secciones del personaje"></nav>
   <div class="dbody" id="dbody"></div>
-  <div class="dfoot"><button class="chip" id="downs" aria-pressed="false">✓ Lo tengo</button><span style="display:flex;gap:8px"><button class="ghost wa" id="dwa">Compartir por WhatsApp</button><button class="ghost" id="dclose">Cerrar</button></span></div>
+  <div class="dfoot"><button class="chip" id="downs" aria-pressed="false">✓ Lo tengo</button><span style="display:flex;gap:8px"><button class="ghost wa" id="dwa">Compartir por WhatsApp</button><button class="ghost dback" id="dclose">← Volver</button></span></div>
 </dialog>
 
 <script>
